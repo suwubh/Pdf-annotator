@@ -129,18 +129,6 @@ POST   /api/highlights          # Create highlight
 DELETE /api/highlights/:uuid    # Delete highlight
 ```
 
-## 🚀 Deployment
-
-This project is deployment-ready with:
-
-* Production-optimized builds
-* Environment variable configuration
-* CORS setup for cross-origin requests
-* Error handling and logging
-
-**Deploy to:** Render / Vercel / Heroku (example)
-
-*Add specific deployment steps for your chosen provider if needed.*
 
 ## 🤝 Contributing
 
