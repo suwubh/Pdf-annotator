@@ -184,5 +184,3 @@ This project is licensed under the MIT License.
 ⭐ Star this repository if it helped you!
 
 ---
-
-*Note:* I fixed and properly fenced all code blocks and placeholders. Update the live demo URLs and any provider-specific deployment steps as needed.
