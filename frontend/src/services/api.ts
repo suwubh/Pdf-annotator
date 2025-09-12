@@ -1,7 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
-
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://pdf-annotator-xr6b.onrender.com/' 
+  : 'http://localhost:5000/api';
 export const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
