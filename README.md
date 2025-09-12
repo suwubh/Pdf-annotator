@@ -29,10 +29,9 @@ A professional-grade PDF annotation tool built with the MERN stack, allowing use
 
 ## 🚀 Live Demo
 
-* **Frontend**: *Your deployed frontend URL*
-* **Backend API**: *Your deployed backend URL*
+* **Frontend**: [*Deployed frontend URL*](https://pdf-annotator-orpin.vercel.app/)
+* **Backend API**: [*Deployed backend URL*](https://pdf-annotator-xr6b.onrender.com/)
 
-> Replace the placeholders above with your actual deployment URLs.
 
 ## 🛠️ Installation & Setup
 
