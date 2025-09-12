@@ -37,112 +37,121 @@ A professional-grade PDF annotation tool built with the MERN stack, allowing use
 - Git
 
 ### Backend Setup
+
+```bash
 cd backend
 npm install
 cp .env.example .env
+Edit .env with your MongoDB connection string and JWT secret, then:
 
-Edit .env with your MongoDB connection string and JWT secret
+bash
+Copy code
 npm run dev
-
-text
-
-### Frontend Setup
+Frontend Setup
+bash
+Copy code
 cd frontend
 npm install
 npm start
-
-text
-
-### Environment Variables
-
-#### Backend (.env)
+Environment Variables
+Backend (.env)
+env
+Copy code
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 PORT=5000
-
-text
-
-#### Frontend (.env)
+Frontend (.env)
+env
+Copy code
 REACT_APP_API_URL=http://localhost:5000/api
-
-text
-
-## 📱 Screenshots
-
+📱 Screenshots
 [Add screenshots of your app here]
 
-## 🏗️ Architecture
-
-### Backend Structure
+🏗️ Architecture
+Backend Structure
+plaintext
+Copy code
 backend/
-├── controllers/ # Request handlers
-├── middleware/ # Auth & validation
-├── models/ # MongoDB schemas
-├── routes/ # API endpoints
-├── uploads/ # PDF file storage
-└── server.js # Express server
-
-text
-
-### Frontend Structure
+├── controllers/   # Request handlers
+├── middleware/    # Auth & validation
+├── models/        # MongoDB schemas
+├── routes/        # API endpoints
+├── uploads/       # PDF file storage
+└── server.js      # Express server
+Frontend Structure
+plaintext
+Copy code
 frontend/
 ├── src/
-│ ├── components/ # React components
-│ ├── pages/ # Route components
-│ ├── context/ # Auth context
-│ ├── services/ # API calls
-│ ├── styles/ # Styled components
-│ └── utils/ # Helper functions
-
-text
-
-## 🔧 API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-
-### PDFs
-- `GET /api/pdfs` - Get user's PDFs
-- `POST /api/pdfs/upload` - Upload PDF
-- `GET /api/pdfs/view/:uuid` - View PDF file
-- `DELETE /api/pdfs/:uuid` - Delete PDF
-
-### Highlights
-- `GET /api/highlights/:pdfUuid` - Get PDF highlights
-- `POST /api/highlights` - Create highlight
-- `DELETE /api/highlights/:uuid` - Delete highlight
-
-## 🚀 Deployment
-
+│   ├── components/  # React components
+│   ├── pages/       # Route components
+│   ├── context/     # Auth context
+│   ├── services/    # API calls
+│   ├── styles/      # Styled components
+│   └── utils/       # Helper functions
+🔧 API Endpoints
+Authentication
+http
+Copy code
+POST /api/auth/register   # User registration
+POST /api/auth/login      # User login
+PDFs
+http
+Copy code
+GET    /api/pdfs           # Get user's PDFs
+POST   /api/pdfs/upload    # Upload PDF
+GET    /api/pdfs/view/:uuid # View PDF file
+DELETE /api/pdfs/:uuid     # Delete PDF
+Highlights
+http
+Copy code
+GET    /api/highlights/:pdfUuid # Get PDF highlights
+POST   /api/highlights          # Create highlight
+DELETE /api/highlights/:uuid    # Delete highlight
+🚀 Deployment
 This project is deployment-ready with:
-- Production-optimized builds
-- Environment variable configuration
-- CORS setup for cross-origin requests
-- Error handling and logging
 
-### Deploy to Render/Vercel/Heroku
+Production-optimized builds
+
+Environment variable configuration
+
+CORS setup for cross-origin requests
+
+Error handling and logging
+
+Deploy to Render/Vercel/Heroku
 [Add deployment instructions]
 
-## 🤝 Contributing
+🤝 Contributing
+Fork the repository
 
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
+Create feature branch
 
-## 📄 License
+bash
+Copy code
+git checkout -b feature/amazing-feature
+Commit changes
 
+bash
+Copy code
+git commit -m "Add amazing feature"
+Push to branch
+
+bash
+Copy code
+git push origin feature/amazing-feature
+Open Pull Request
+
+📄 License
 This project is licensed under the MIT License.
 
-## 👨‍💻 Author
+👨‍💻 Author
+Subhankar Satpathy
 
-**Subhankar satpathy**
-- GitHub: [@suwubh](https://github.com/suwubh)
-- LinkedIn: [Subhankar satpathy](https://www.linkedin.com/in/subhankar-satpathy/)
-- Email: subhankarsatpathy69@gmail.com
+GitHub: @suwubh
 
----
+LinkedIn: Subhankar Satpathy
 
-⭐ **Star this repository if it helped you!**
+Email: subhankarsatpathy69@gmail.com
+
+⭐ Star this repository if it helped you!
