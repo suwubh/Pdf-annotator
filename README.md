@@ -177,8 +177,8 @@ This project is licensed under the MIT License.
 
 **Subhankar Satpathy**
 
-* GitHub: @suwubh
-* LinkedIn: Subhankar Satpathy
+* GitHub: [@suwubh](https://github.com/suwubh/)
+* LinkedIn: [Subhankar Satpathy](https://www.linkedin.com/in/subhankar-satpathy/)
 * Email: [subhankarsatpathy69@gmail.com](mailto:subhankarsatpathy69@gmail.com)
 
 ⭐ Star this repository if it helped you!
