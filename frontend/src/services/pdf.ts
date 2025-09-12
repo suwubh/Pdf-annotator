@@ -1,4 +1,3 @@
-// src/services/pdf.ts
 import { api } from './api';
 import { PDF } from '../types';
 

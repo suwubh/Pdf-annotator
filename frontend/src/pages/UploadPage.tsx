@@ -1,4 +1,3 @@
-// src/pages/UploadPage.tsx
 import React from 'react';
 import Layout from '../components/common/Layout';
 import PDFUpload from '../components/pdf/PDFUpload';

@@ -1,4 +1,3 @@
-// src/context/AuthContext.tsx
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { User } from '../types';
 import { authService } from '../services/auth';
@@ -28,7 +27,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           setToken(storedToken);
           setUser(JSON.parse(storedUser));
           
-          // Verify token is still valid
           await authService.getCurrentUser();
         } catch (error) {
           localStorage.removeItem('token');

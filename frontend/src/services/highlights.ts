@@ -1,4 +1,3 @@
-// src/services/highlights.ts
 import { api } from './api';
 import { Highlight, CreateHighlightRequest, HighlightsByPage } from '../types';
 

@@ -1,4 +1,3 @@
-// src/components/pdf/HighlightOverlay.tsx
 import React from 'react';
 import styled from 'styled-components';
 import { Highlight } from '../../types';

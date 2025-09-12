@@ -1,4 +1,3 @@
-// src/components/dashboard/PDFLibrary.tsx (Complete Fixed Version)
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -244,7 +243,7 @@ const PDFLibrary: React.FC = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
-  const { data: pdfsData, isLoading, error } = useQuery({
+  const { data: pdfsData, isLoading } = useQuery({
     queryKey: ['user-pdfs'],
     queryFn: pdfService.getUserPDFs,
   });
@@ -262,17 +261,13 @@ const PDFLibrary: React.FC = () => {
 
   const pdfs = pdfsData?.pdfs || [];
 
-  // Filter PDFs based on search query
   const filteredPDFs = pdfs.filter(pdf =>
     pdf.originalName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // FIXED: Calculate stats with proper date handling
   const totalSize = pdfs.reduce((sum, pdf) => sum + pdf.fileSize, 0);
   
-  // FIXED: Use correct date field and utility function
   const thisMonthCount = pdfs.filter(pdf => {
-    // Use createdAt from timestamps (your backend model has timestamps: true)
     const dateField = pdf.createdAt || pdf.uploadedAt || pdf.uploadDate;
     return isThisMonth(dateField);
   }).length;
@@ -414,7 +409,6 @@ const PDFLibrary: React.FC = () => {
                 <PDFMeta>
                   <span>{formatFileSize(pdf.fileSize)}</span>
                   <span>•</span>
-                  {/* FIXED: Use proper date formatting with fallback */}
                   <PDFDate>
                     {formatDate(pdf.createdAt || pdf.uploadedAt || pdf.uploadDate)}
                   </PDFDate>

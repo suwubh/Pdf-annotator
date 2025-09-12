@@ -1,4 +1,3 @@
-// src/components/pdf/PDFUpload.tsx (Complete fixed version)
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -177,7 +176,7 @@ const PDFUpload: React.FC = () => {
     if (file.type !== 'application/pdf') {
       return 'Only PDF files are allowed';
     }
-    if (file.size > 50 * 1024 * 1024) { // 50MB
+    if (file.size > 50 * 1024 * 1024) {
       return 'File size must be less than 50MB';
     }
     return undefined;

@@ -1,4 +1,3 @@
-// src/pages/LibraryPage.tsx
 import React from 'react';
 import Layout from '../components/common/Layout';
 import PDFLibrary from '../components/dashboard/PDFLibrary';

@@ -1,4 +1,3 @@
-// src/components/pdf/HighlightTools.tsx
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Palette, MessageSquare, Trash2, Plus, Search } from 'lucide-react';
@@ -167,14 +166,14 @@ interface HighlightToolsProps {
 }
 
 const HIGHLIGHT_COLORS = [
-  '#ffff00', // Yellow
-  '#ff6b6b', // Red
-  '#4ecdc4', // Teal
-  '#45b7d1', // Blue
-  '#96ceb4', // Green
-  '#feca57', // Orange
-  '#ff9ff3', // Pink
-  '#a55eea'  // Purple
+  '#ffff00', 
+  '#ff6b6b', 
+  '#4ecdc4', 
+  '#45b7d1', 
+  '#96ceb4', 
+  '#feca57',
+  '#ff9ff3', 
+  '#a55eea'  
 ];
 
 const HighlightTools: React.FC<HighlightToolsProps> = ({
@@ -211,7 +210,6 @@ const HighlightTools: React.FC<HighlightToolsProps> = ({
 
   return (
     <ToolsContainer>
-      {/* Color Selection */}
       <Section>
         <SectionTitle>
           <Palette size={16} />
@@ -230,7 +228,6 @@ const HighlightTools: React.FC<HighlightToolsProps> = ({
         </ColorPalette>
       </Section>
 
-      {/* Selection Tools */}
       <Section>
         <SectionTitle>
           <MessageSquare size={16} />
@@ -270,7 +267,6 @@ const HighlightTools: React.FC<HighlightToolsProps> = ({
         </SelectionCard>
       </Section>
 
-      {/* Highlights List */}
       <Section style={{ flex: 1, overflow: 'hidden' }}>
         <SectionTitle>
           <Search size={16} />

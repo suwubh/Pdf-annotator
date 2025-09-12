@@ -1,4 +1,3 @@
-// src/components/auth/RegisterForm.tsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -7,7 +6,6 @@ import { useAuth } from '../../context/AuthContext';
 import { authService } from '../../services/auth';
 import { Button, Card } from '../../styles/GlobalStyle';
 
-// Reuse styled components from LoginForm
 const AuthContainer = styled.div`
   min-height: 100vh;
   display: flex;

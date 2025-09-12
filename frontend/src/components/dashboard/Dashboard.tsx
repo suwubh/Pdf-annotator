@@ -1,4 +1,3 @@
-// src/components/dashboard/Dashboard.tsx (Complete Fixed Version)
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -189,17 +188,14 @@ const Dashboard: React.FC = () => {
   });
 
   const pdfs = pdfsData?.pdfs || [];
-  const recentPDFs = pdfs.slice(0, 5); // Show last 5 PDFs
+  const recentPDFs = pdfs.slice(0, 5);
 
-  // FIXED: Calculate stats with proper date handling
   const thisMonthCount = pdfs.filter(pdf => {
-    // Use createdAt from your model (timestamps: true)
     const uploadDate = pdf.createdAt || pdf.uploadedAt || pdf.uploadDate;
     console.log('Dashboard: Checking date for this month:', uploadDate, isThisMonth(uploadDate));
     return isThisMonth(uploadDate);
   }).length;
 
-  // Calculate recently viewed (last 7 days)
   const sevenDaysAgo = new Date();
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
   

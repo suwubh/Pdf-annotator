@@ -1,4 +1,3 @@
-// src/components/dashboard/StatsOverview.tsx (Complete Fixed Version)
 import React from 'react';
 import styled from 'styled-components';
 import { FileText, Eye, Calendar } from 'lucide-react';
@@ -54,9 +53,7 @@ interface StatsOverviewProps {
 }
 
 const StatsOverview: React.FC<StatsOverviewProps> = ({ pdfs, recentViewCount }) => {
-  // FIXED: Calculate this month's uploads correctly
   const thisMonthUploads = pdfs.filter(pdf => {
-    // Use the PDF's createdAt field (from timestamps: true in your model)
     const uploadDate = pdf.createdAt || pdf.uploadedAt || pdf.uploadDate;
     console.log('StatsOverview: Checking date for this month:', uploadDate, isThisMonth(uploadDate));
     return isThisMonth(uploadDate);

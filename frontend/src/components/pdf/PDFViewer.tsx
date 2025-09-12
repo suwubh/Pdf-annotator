@@ -1,4 +1,3 @@
-// src/components/pdf/PDFViewer.tsx (Complete Fixed Version with Blob URL)
 import React, { useState, useCallback, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -14,7 +13,6 @@ import {
 import { useQuery, useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 
-// @react-pdf-viewer imports
 import { Viewer, Worker } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import { highlightPlugin } from '@react-pdf-viewer/highlight';
@@ -22,7 +20,6 @@ import { toolbarPlugin } from '@react-pdf-viewer/toolbar';
 import { zoomPlugin } from '@react-pdf-viewer/zoom';
 import { pageNavigationPlugin } from '@react-pdf-viewer/page-navigation';
 
-// Import CSS for react-pdf-viewer
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import '@react-pdf-viewer/highlight/lib/styles/index.css';
@@ -142,7 +139,6 @@ const PDFViewer: React.FC = () => {
   const navigate = useNavigate();
   const { user, token } = useAuth();
   
-  // State
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
   const [isSelectionMode, setIsSelectionMode] = useState<boolean>(false);
   const [selectedText, setSelectedText] = useState<string>('');
@@ -151,26 +147,22 @@ const PDFViewer: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(0);
 
-  // FIXED: PDF Blob URL state for authenticated access
   const [pdfBlobUrl, setPdfBlobUrl] = useState<string | null>(null);
   const [isPDFLoading, setIsPDFLoading] = useState<boolean>(true);
   const [pdfError, setPdfError] = useState<string | null>(null);
 
-  // Fetch PDF details
   const { data: pdfData, isLoading: isPdfDetailsLoading } = useQuery({
     queryKey: ['pdf', pdfUuid],
     queryFn: () => pdfService.getPDFDetails(pdfUuid!),
     enabled: !!pdfUuid,
   });
 
-  // Fetch highlights
   const { data: highlightsData, refetch: refetchHighlights } = useQuery({
     queryKey: ['highlights', pdfUuid],
     queryFn: () => highlightService.getPDFHighlights(pdfUuid!),
     enabled: !!pdfUuid,
   });
 
-  // Create highlight mutation
   const createHighlightMutation = useMutation({
     mutationFn: highlightService.createHighlight,
     onSuccess: () => {
@@ -184,7 +176,6 @@ const PDFViewer: React.FC = () => {
     }
   });
 
-  // Delete highlight mutation
   const deleteHighlightMutation = useMutation({
     mutationFn: highlightService.deleteHighlight,
     onSuccess: () => {
@@ -197,7 +188,6 @@ const PDFViewer: React.FC = () => {
   const highlights = highlightsData?.highlights || [];
   const highlightsByPage = highlightsData?.highlightsByPage || {};
 
-  // FIXED: Fetch PDF with authentication headers and create blob URL
   useEffect(() => {
     const loadPDFWithAuth = async () => {
       if (!pdfUuid || !token) return;
@@ -239,7 +229,6 @@ const PDFViewer: React.FC = () => {
 
     loadPDFWithAuth();
 
-    // Cleanup blob URL on unmount or when pdfUuid changes
     return () => {
       if (pdfBlobUrl) {
         URL.revokeObjectURL(pdfBlobUrl);
@@ -247,7 +236,6 @@ const PDFViewer: React.FC = () => {
     };
   }, [pdfUuid, token]);
 
-  // Add highlight function
   const addHighlight = useCallback((note: string = '') => {
     if (!selectedText || !selectionBounds || !pdfUuid) return;
 
@@ -263,12 +251,10 @@ const PDFViewer: React.FC = () => {
     createHighlightMutation.mutate(highlightData);
   }, [selectedText, selectionBounds, pdfUuid, currentPage, highlightColor, createHighlightMutation]);
 
-  // Delete highlight function
   const deleteHighlight = useCallback((highlightUuid: string) => {
     deleteHighlightMutation.mutate(highlightUuid);
   }, [deleteHighlightMutation]);
 
-  // Create plugins for react-pdf-viewer
   const highlightPluginInstance = highlightPlugin({
     renderHighlights: (props) => {
       const currentPageHighlights = highlightsByPage[props.pageIndex + 1] || [];
@@ -299,11 +285,9 @@ const PDFViewer: React.FC = () => {
     }
   });
 
-  // Create toolbar plugin
   const toolbarPluginInstance = toolbarPlugin();
   const { renderDefaultToolbar, Toolbar } = toolbarPluginInstance;
 
-  // Transform function to hide unwanted toolbar items
   const transform = (slot: any) => ({
     ...slot,
     Download: () => <></>,
@@ -311,13 +295,11 @@ const PDFViewer: React.FC = () => {
     Open: () => <></>,
   });
 
-  // Page navigation plugin
   const pageNavigationPluginInstance = pageNavigationPlugin();
   const zoomPluginInstance = zoomPlugin();
 
-  // Default layout plugin with proper toolbar configuration
   const defaultLayoutPluginInstance = defaultLayoutPlugin({
-    sidebarTabs: () => [], // Hide default sidebar tabs
+    sidebarTabs: () => [], 
     renderToolbar: (Toolbar: any) => (
       <Toolbar>
         {renderDefaultToolbar(transform)}
@@ -325,18 +307,15 @@ const PDFViewer: React.FC = () => {
     ),
   });
 
-  // Handle document load
   const handleDocumentLoad = (e: any) => {
     setTotalPages(e.doc.numPages);
     console.log('PDF document loaded:', e.doc.numPages, 'pages');
   };
 
-  // Handle page change  
   const handlePageChange = (e: any) => {
     setCurrentPage(e.currentPage + 1);
   };
 
-  // Handle text selection in selection mode
   useEffect(() => {
     if (!isSelectionMode) return;
 
@@ -348,7 +327,6 @@ const PDFViewer: React.FC = () => {
       const range = selection.getRangeAt(0);
       const rect = range.getBoundingClientRect();
       
-      // Find the page container
       const pageElement = range.commonAncestorContainer.parentElement?.closest('.rpv-core__page-layer');
       if (!pageElement) return;
       
@@ -375,7 +353,6 @@ const PDFViewer: React.FC = () => {
     return () => document.removeEventListener('mouseup', handleMouseUp);
   }, [isSelectionMode]);
 
-  // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'h' && selectedText) {
@@ -392,7 +369,6 @@ const PDFViewer: React.FC = () => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [selectedText, addHighlight]);
 
-  // Loading states
   if (isPdfDetailsLoading || isPDFLoading) {
     return <LoadingMessage>Loading PDF...</LoadingMessage>;
   }

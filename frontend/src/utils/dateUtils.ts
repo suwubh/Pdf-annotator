@@ -1,10 +1,8 @@
-// src/utils/dateUtils.ts (Create this new file)
 export const formatDate = (dateString: string | Date | undefined | null): string => {
   if (!dateString) return 'Unknown date';
   
   const date = new Date(dateString);
   
-  // Check if date is valid
   if (isNaN(date.getTime())) {
     console.warn('Invalid date string:', dateString);
     return 'Unknown date';

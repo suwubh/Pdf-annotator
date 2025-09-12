@@ -1,4 +1,3 @@
-// src/App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -28,11 +27,9 @@ const App: React.FC = () => {
         <Router>
           <GlobalStyle />
           <Routes>
-            {/* Public Routes */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<LoginPage />} />
             
-            {/* Protected Routes */}
             <Route
               path="/dashboard"
               element={
@@ -66,7 +63,6 @@ const App: React.FC = () => {
               }
             />
             
-            {/* Default Routes */}
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>

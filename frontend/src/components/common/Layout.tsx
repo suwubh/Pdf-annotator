@@ -1,4 +1,3 @@
-// src/components/common/Layout.tsx
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';

@@ -1,4 +1,3 @@
-// src/pages/PDFViewerPage.tsx
 import React from 'react';
 import PDFViewer from '../components/pdf/PDFViewer';
 
