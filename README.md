@@ -138,7 +138,7 @@ This project is licensed under the MIT License.
 
 ## 👨‍💻 Author
 
-**[Your Name]**
+**Subhankar satpathy**
 - GitHub: [@suwubh](https://github.com/suwubh)
 - LinkedIn: [Subhankar satpathy](https://www.linkedin.com/in/subhankar-satpathy/)
 - Email: subhankarsatpathy69@gmail.com
