@@ -1,0 +1,14 @@
+node_modules/
+
+.env
+.env.local
+
+uploads/
+
+logs/
+*.log
+
+pids/
+*.pid
+
+data/
