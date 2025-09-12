@@ -5,36 +5,42 @@ A professional-grade PDF annotation tool built with the MERN stack, allowing use
 ## ✨ Features
 
 ### 🔐 Authentication & Security
-- **JWT-based authentication** with secure login/registration
-- **User-specific data isolation** - users only see their own PDFs
-- **Protected routes** and API endpoints
+
+* **JWT-based authentication** with secure login/registration
+* **User-specific data isolation** - users only see their own PDFs
+* **Protected routes** and API endpoints
 
 ### 📄 PDF Management
-- **Drag & drop PDF upload** with file validation
-- **PDF viewer** with zoom, rotation, and navigation
-- **Text selection and highlighting** with 8 color options
-- **Persistent annotations** stored in MongoDB
-- **Search and filter** through your PDF library
+
+* **Drag & drop PDF upload** with file validation
+* **PDF viewer** with zoom, rotation, and navigation
+* **Text selection and highlighting** with 8 color options
+* **Persistent annotations** stored in MongoDB
+* **Search and filter** through your PDF library
 
 ### 💻 Modern Tech Stack
-- **Frontend**: React 18 + TypeScript + Styled Components
-- **Backend**: Node.js + Express + JWT middleware
-- **Database**: MongoDB with Mongoose ODM
-- **PDF Rendering**: @react-pdf-viewer with PDF.js
-- **State Management**: React Query for server state
-- **File Storage**: Local filesystem with UUID tracking
+
+* **Frontend**: React 18 + TypeScript + Styled Components
+* **Backend**: Node.js + Express + JWT middleware
+* **Database**: MongoDB with Mongoose ODM
+* **PDF Rendering**: `@react-pdf-viewer` with PDF.js
+* **State Management**: React Query for server state
+* **File Storage**: Local filesystem with UUID tracking
 
 ## 🚀 Live Demo
 
-- **Frontend**: [Your deployed frontend URL]
-- **Backend API**: [Your deployed backend URL]
+* **Frontend**: *Your deployed frontend URL*
+* **Backend API**: *Your deployed backend URL*
+
+> Replace the placeholders above with your actual deployment URLs.
 
 ## 🛠️ Installation & Setup
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB (local or Atlas)
-- Git
+
+* Node.js (v14 or higher)
+* MongoDB (local or Atlas)
+* Git
 
 ### Backend Setup
 
@@ -42,35 +48,43 @@ A professional-grade PDF annotation tool built with the MERN stack, allowing use
 cd backend
 npm install
 cp .env.example .env
-Edit .env with your MongoDB connection string and JWT secret, then:
-
-bash
-Copy code
+# Edit .env with your MongoDB connection string and JWT secret, then:
 npm run dev
-Frontend Setup
-bash
-Copy code
+```
+
+### Frontend Setup
+
+```bash
 cd frontend
 npm install
 npm start
-Environment Variables
-Backend (.env)
-env
-Copy code
+```
+
+### Environment Variables
+
+**Backend (.env)**
+
+```env
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 PORT=5000
-Frontend (.env)
-env
-Copy code
-REACT_APP_API_URL=http://localhost:5000/api
-📱 Screenshots
-[Add screenshots of your app here]
+```
 
-🏗️ Architecture
-Backend Structure
-plaintext
-Copy code
+**Frontend (.env)**
+
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+```
+
+## 📱 Screenshots
+
+*Add screenshots of your app here — optional but helpful for README viewers.*
+
+## 🏗️ Architecture
+
+### Backend Structure
+
+```plaintext
 backend/
 ├── controllers/   # Request handlers
 ├── middleware/    # Auth & validation
@@ -78,9 +92,11 @@ backend/
 ├── routes/        # API endpoints
 ├── uploads/       # PDF file storage
 └── server.js      # Express server
-Frontend Structure
-plaintext
-Copy code
+```
+
+### Frontend Structure
+
+```plaintext
 frontend/
 ├── src/
 │   ├── components/  # React components
@@ -89,69 +105,84 @@ frontend/
 │   ├── services/    # API calls
 │   ├── styles/      # Styled components
 │   └── utils/       # Helper functions
-🔧 API Endpoints
-Authentication
-http
-Copy code
+```
+
+## 🔧 API Endpoints
+
+### Authentication
+
+```http
 POST /api/auth/register   # User registration
 POST /api/auth/login      # User login
-PDFs
-http
-Copy code
-GET    /api/pdfs           # Get user's PDFs
-POST   /api/pdfs/upload    # Upload PDF
+```
+
+### PDFs
+
+```http
+GET    /api/pdfs            # Get user's PDFs
+POST   /api/pdfs/upload     # Upload PDF
 GET    /api/pdfs/view/:uuid # View PDF file
-DELETE /api/pdfs/:uuid     # Delete PDF
-Highlights
-http
-Copy code
+DELETE /api/pdfs/:uuid      # Delete PDF
+```
+
+### Highlights
+
+```http
 GET    /api/highlights/:pdfUuid # Get PDF highlights
 POST   /api/highlights          # Create highlight
 DELETE /api/highlights/:uuid    # Delete highlight
-🚀 Deployment
+```
+
+## 🚀 Deployment
+
 This project is deployment-ready with:
 
-Production-optimized builds
+* Production-optimized builds
+* Environment variable configuration
+* CORS setup for cross-origin requests
+* Error handling and logging
 
-Environment variable configuration
+**Deploy to:** Render / Vercel / Heroku (example)
 
-CORS setup for cross-origin requests
+*Add specific deployment steps for your chosen provider if needed.*
 
-Error handling and logging
+## 🤝 Contributing
 
-Deploy to Render/Vercel/Heroku
-[Add deployment instructions]
+1. Fork the repository
+2. Create a feature branch
 
-🤝 Contributing
-Fork the repository
-
-Create feature branch
-
-bash
-Copy code
+```bash
 git checkout -b feature/amazing-feature
-Commit changes
+```
 
-bash
-Copy code
+3. Commit changes
+
+```bash
 git commit -m "Add amazing feature"
-Push to branch
+```
 
-bash
-Copy code
+4. Push to branch
+
+```bash
 git push origin feature/amazing-feature
-Open Pull Request
+```
 
-📄 License
+5. Open Pull Request
+
+## 📄 License
+
 This project is licensed under the MIT License.
 
-👨‍💻 Author
-Subhankar Satpathy
+## 👨‍💻 Author
 
-GitHub: @suwubh
+**Subhankar Satpathy**
 
-LinkedIn: Subhankar Satpathy
-
-Email: subhankarsatpathy69@gmail.com
+* GitHub: @suwubh
+* LinkedIn: Subhankar Satpathy
+* Email: [subhankarsatpathy69@gmail.com](mailto:subhankarsatpathy69@gmail.com)
 
 ⭐ Star this repository if it helped you!
+
+---
+
+*Note:* I fixed and properly fenced all code blocks and placeholders. Update the live demo URLs and any provider-specific deployment steps as needed.
