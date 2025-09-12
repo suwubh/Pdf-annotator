@@ -75,9 +75,6 @@ PORT=5000
 REACT_APP_API_URL=http://localhost:5000/api
 ```
 
-## 📱 Screenshots
-
-*Add screenshots of your app here — optional but helpful for README viewers.*
 
 ## 🏗️ Architecture
 
